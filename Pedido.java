@@ -24,5 +24,4 @@ public class Pedido {
     public void adicionaItem(Item item){
         itens.add(item);
     }
-
 }
