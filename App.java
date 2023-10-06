@@ -24,5 +24,7 @@ public class App {
         System.out.println("ID do Usuário 2: " + user2.getId()); 
         System.out.println("Usuário 3: "+user3.getNome());
         System.out.println("ID do Usuário 3: "+user3.getId());
+
+        Financeiro pDepartamento = new Financeiro();
     }
 }

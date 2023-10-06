@@ -1,8 +1,9 @@
 //cada funcionario esta alocado em um destes apartamentos
 //o sistema deve iniciar com dados de pelo menos 15 funcionarios
 //
-
-import java.util.ArrayList;
 public class Manutencao extends Departamento{
-    private ArrayList<Usuario> listaDeFuncionarios;
+    Manutencao(){
+        super(40);
+    }
+
 }

@@ -8,14 +8,14 @@ public abstract class Departamento {
         valorMaxPedidos = valor;
     }
 
-    public boolean addFuncionario(Usuario usuario){
-        for (Usuario funcionario: listaDeFuncionarios){
-            if(usuario.getId().equals(funcionario.getId())){
-                return false;
-            } else{
-                listaDeFuncionarios.add(usuario);
-            }
+    public void addFuncionario(Usuario usuario){
+        System.out.println("FUNCIONOU!");
         }
-        return true;
     }
-}
+
+    // public String listaFuncToString(){
+    //     for(Usuario funcionario: listaDeFuncionarios){
+    //         System.out.println(funcionario.get)
+    //     }
+    // }
+
