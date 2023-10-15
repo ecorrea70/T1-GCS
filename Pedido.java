@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.Date;
 public class Pedido {
     private int codigoPedido; //Não especifica mas precisa de um pra poder buscar o pedido depois
-    private Funcionario funcionario; // saber qual o funcionario
+    private Usuario funcionario; // saber qual o funcionario
     private Departamento departamento; // esse aqui vai receber o departamento do funcionario de coma
     private Date dataPedido;
 
     private Date dataConclusao;
     private String status;
-    private  ArrayList<Pedido> itens;
+    private ArrayList<Pedido> itens;
 
     public Pedido(Date dataPedido, Date dataConclusao, Funcionario funcionario, Departamento departamento, String status) {
         this.codigoPedido = codigoPedido;

@@ -8,14 +8,19 @@ public abstract class Departamento {
         valorMaxPedidos = valor;
     }
 
-    public void addFuncionario(Usuario usuario){
-        System.out.println("FUNCIONOU!");
-        }
+    public boolean addFuncionario(Usuario usuario){
+        listaDeFuncionarios.add(usuario);
+        System.out.println("Adicionado com sucesso!\n");
+        return true;
     }
 
-    // public String listaFuncToString(){
-    //     for(Usuario funcionario: listaDeFuncionarios){
-    //         System.out.println(funcionario.get)
-    //     }
-    // }
-
+    public void mostraFuncionarios(){
+        System.out.println("Informações dos funcionários: ");
+        for (Usuario u: listaDeFuncionarios){
+            System.out.println("Informações do usuário: "+u.getNome());
+            System.out.println("Nome: "+u.getNome());
+            System.out.println("ID: "+u.getId());
+            System.out.println("Tipo: "+u.getTipo()+"\n");
+        }
+    }
+}
