@@ -1,14 +1,22 @@
 import java.util.ArrayList;
-import java.util.Date;
 public class Pedido {
     private int codigoPedido; //Não especifica mas precisa de um pra poder buscar o pedido depois
     private String funcionario; // saber qual o funcionario
     private String departamento; // esse aqui vai receber o departamento do funcionario de cima
     private int dataPedido;
-//    private Date dataConclusao;
-    private String status;
-    private ArrayList<Item> itens;
-    private ArrayList<Pedido> pedidos;
+    private int dataConclusao;
+    private StatusPedido status;
+    private ArrayList<Item> listaDePedidos;
+
+     public Pedido(int codigoPedido, Usuario usuario, String departamento, int dataPedido, int dataConclusao, StatusPedido status) {
+        this.codigoPedido = codigoPedido;
+        this.funcionario = usuario.getNome();
+        this.departamento = departamento;
+        this.dataPedido = dataPedido;
+        this.dataConclusao = dataConclusao;
+        this.status = status;
+        listaDePedidos = new ArrayList<>();
+    }
 
     public int getCodigoPedido() {
         return codigoPedido;
@@ -42,47 +50,23 @@ public class Pedido {
         this.dataPedido = dataPedido;
     }
 
-//    public Date getDataConclusao() {
-//        return dataConclusao;
-//    }
-//
-//    public void setDataConclusao(Date dataConclusao) {
-//        this.dataConclusao = dataConclusao;
-//    }
+    public int getDataConclusao() {
+        return dataConclusao;
+    }
 
-    public String getStatus() {
+    public void setDataConclusao(int dataConclusao) {
+        this.dataConclusao = dataConclusao;
+    }
+
+    public StatusPedido getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusPedido status) {
         this.status = status;
     }
-
-    public ArrayList<Item> getItens() {
-        return itens;
+    
+    public void adicionarItem(Item i){
+        listaDePedidos.add(i);
     }
-
-    public void setItens(ArrayList<Item> itens) {
-        this.itens = itens;
-    }
-
-    public Pedido(int codigoPedido, String funcionario, String departamento, int dataPedido/* Date dataConclusao*/, String status, ArrayList<Item> itens) {
-        this.codigoPedido = codigoPedido;
-        this.funcionario = funcionario;
-        this.departamento = departamento;
-        this.dataPedido = dataPedido;
-//        this.dataConclusao = dataConclusao;
-        this.status = "aberto";
-        this.itens = itens;
-    }
-
-//    public void concluiPedido(){ // Para poder concluir o pedido e pegar a data atual dele
-//        dataConclusao = new Date();
-//    }
-//    public void adicionarPedido(Pedido pedido){
-//       pedidos.add(pedido);
-//        System.out.println(pedido.codigoPedido + pedido.itens.get(0).getQuantidade());
-//    }
-
-
 }

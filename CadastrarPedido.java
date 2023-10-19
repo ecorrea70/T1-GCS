@@ -28,12 +28,7 @@ public class CadastrarPedido {
         int codigo = entrada.nextInt();
         for (Pedido p : pedidos) {
             if (p.getCodigoPedido() == codigo) {
-
-
-
             }
-
-
         }
     }
 
