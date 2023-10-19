@@ -5,7 +5,7 @@ public class Item {
     private double valorUnitario;
     private int quantidade;
     private double valorTotal;
-    private ArrayList<Item> itens =  new ArrayList<Item>();
+    private ArrayList<Item> itens = new ArrayList<Item>();
 
     public String getDescricao() {
         return descricao;
@@ -43,19 +43,8 @@ public class Item {
         return itens;
     }
 
-    public void setItens(ArrayList<Item> itens) {
-        this.itens = itens;
-    }
-
-    public Item(String descricao, double valorUnitario, int quantidade, double valorTotal) {
-        this.descricao = descricao;
-        this.valorUnitario = valorUnitario;
-        this.quantidade = quantidade;
-        this.valorTotal = valorTotal;
-        this.itens = itens;
-    }
-    public void adicionarItem(Item item){
+    public void adicionarItem(Item item) {
         itens.add(item);
-        System.out.println(itens.get(0).getDescricao()+"\n" +itens.get(0).getValorTotal());
+        System.out.println(item.getDescricao() + "\n" + item.getValorTotal());
     }
 }
