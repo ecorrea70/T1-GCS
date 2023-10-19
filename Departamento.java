@@ -29,12 +29,11 @@ public abstract class Departamento {
         }
         return false;
     }
+
+    public void listaFuncToString(){
+        for(Usuario funcionario: listaDeFuncionarios){
+            System.out.println(funcionario.getNome());
+        }
+    }
 }
-
-
-    // public String listaFuncToString(){
-    //     for(Usuario funcionario: listaDeFuncionarios){
-    //         System.out.println(funcionario.get)
-    //     }
-    // }
 
