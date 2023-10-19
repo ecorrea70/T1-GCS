@@ -10,15 +10,14 @@ public class CadastrarPedido {
         int codigo = entrada.nextInt();
         System.out.println("Funcionario:");
         entrada.nextLine();
-        String funcioanrio = entrada.nextLine();
+        String funcionario = entrada.nextLine();
         System.out.println("Departamento:");
         String departamento = entrada.nextLine();
         System.out.println("Data:");
         int data = new Date().getDay();
         String status = "Aberto";
-        Pedido pedido = new Pedido(codigo, funcioanrio, departamento, data, status, cadItem.item.getItens());
+        Pedido pedido = new Pedido(codigo, funcionario, departamento, data, status, cadItem.item.getItens());
         pedido.adicionarPedido(pedido);
-
     }
 
 }
