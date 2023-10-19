@@ -19,7 +19,7 @@ public class CadastrarPedido {
         int data = new Date().getDay();
         String status = "Aberto";
         Pedido pedido = new Pedido(codigo, funcioanrio, departamento, data, status, cadItem.item.getItens());
-        pedido.adicionarPedido(pedido);
+        pedidos.add(pedido);
     }
 
 
@@ -28,7 +28,7 @@ public class CadastrarPedido {
         int codigo = entrada.nextInt();
         for (Pedido p : pedidos) {
             if (p.getCodigoPedido() == codigo) {
-                // continuar codigo 
+
 
 
             }
@@ -41,42 +41,45 @@ public class CadastrarPedido {
 
 
     public void alterarStatusDoPedido() {
-        if (usuario.tipo == TipoUsuario.ADMINISTRADOR) {
+        identificaUser identifa = new identificaUser();
+        System.out.println("Digite o seu id ");
+        String user = entrada.nextLine();
+        Usuario u= identifa.encontraUser(user);
+        if (u.equals(TipoUsuario.ADMINISTRADOR)) {
             System.out.println("Digite o codigo do pedido");
             int codigo = entrada.nextInt();
             for (Pedido p: pedidos) {
-                if (p.getCodigoPedido() == codigo){
+                if(p.getStatus().equalsIgnoreCase("Aberto")) {
+                    if (p.getCodigoPedido() == codigo) {
+                        System.out.println("STATUS: " + p.getStatus());
+                        System.out.println("Escolha uma opção: ");
+                        System.out.println("1 - Aprovar");
+                        System.out.println("2 - Reprovar");
 
-                    System.out.println("STATUS: "+ p.getStatus());
-                    System.out.println("Escolha uma opção: ");
-                    System.out.println("1 - Aprovar");
-                    System.out.println("2 - Reprovar");
+                        int escolha = entrada.nextInt();
 
-                    int escolha = entrada.nextInt();
+                        switch (escolha) {
+                            case 1:
+                                p.setStatus("Aprovado");
+                                System.out.println("pedido aprovado");
+                                break;
+                            case 2:
+                                p.setStatus("Reprovado");
+                                System.out.println("pedido aprovado");
+                                break;
+                            default:
+                                System.out.println("Opção inválida.");
+                                break;
+                        }
 
-                    switch (escolha) {
-                        case 1:
-                            p.setStatus("Aprovado");
-                            System.out.println("pedido aprovado");
-                            break;
-                        case 2:
-                            p.setStatus("Reprovado");
-                            System.out.println("pedido aprovado");
-                            break;
-                        default:
-                            System.out.println("Opção inválida.");
-                            break;
+                    } else {
+                        System.out.println("Este pedido já está concluído");
                     }
-
-                } else {
-                    System.out.println("Funcionarios não podem alterar o status do pedido");}
-            }
+                } else System.out.println("Funcionarios não podem alterar o status do pedido");
+                }
         }
 
             }
-
-
-
 
     public  void listarPedidos() {
         System.out.println("Digite a data de inicio");
@@ -86,7 +89,9 @@ public class CadastrarPedido {
 
         for (Pedido pedido : pedidos) {
             if (pedido.getDataPedido() >= dinicio && pedido.getDataPedido() <= dfinal) {
-                System.out.println("Pedido: " +pedido);
+                System.out.println("O código do seu pedido é: " + pedido.getCodigoPedido());
+                System.out.println("Foi feito pelo departamento: " + pedido.getDepartamento());
+                System.out.println("O estado do pedido está como: " + pedido.getStatus());
             }
         }
 
@@ -105,8 +110,6 @@ public class CadastrarPedido {
             }
 
             }
-
-
         }
 
         public void vizuDetalhes(){
@@ -124,13 +127,7 @@ public class CadastrarPedido {
 
                 }
 
+    public void concluirPedido(Pedido pedido){
+        }
 
-
-
-
-
-
-
-
-
-}
+    }

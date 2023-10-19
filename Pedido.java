@@ -79,8 +79,10 @@ public class Pedido {
 //    public void concluiPedido(){ // Para poder concluir o pedido e pegar a data atual dele
 //        dataConclusao = new Date();
 //    }
-    public void adicionarPedido(Pedido pedido){
-        pedidos.add(pedido);
-        System.out.println(pedido.codigoPedido + pedido.itens.get(0).getQuantidade());
-    }
+//    public void adicionarPedido(Pedido pedido){
+//       pedidos.add(pedido);
+//        System.out.println(pedido.codigoPedido + pedido.itens.get(0).getQuantidade());
+//    }
+
+
 }
