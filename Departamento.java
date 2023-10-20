@@ -18,10 +18,10 @@ public abstract class Departamento {
         return nomeDepartamento;
     }
 
-    public void addFuncionario(Usuario usuario){
-        listaDeFuncionarios.add(usuario);
-        usuario.setDepartamento(getNomeDepartamento());
-    }
+//    public void addFuncionario(Usuario usuario){
+//        listaDeFuncionarios.add(usuario);
+//        usuario.setDepartamento(getNomeDepartamento());
+//    }
 
     public boolean addPedidos(Pedido pedido){
         if (valorAtualPedidos <= valorMaxPedidos){

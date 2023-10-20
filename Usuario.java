@@ -4,11 +4,11 @@ public class Usuario {
     private TipoUsuario tipo;
     private String departamento;
 
-    public Usuario(String nome, String id, TipoUsuario tipo) {
+    public Usuario(String nome, String id, TipoUsuario tipo, String departamento) {
         this.nome = nome;
         this.id = id;
         this.tipo = tipo;
-        this.departamento = null;
+        this.departamento = departamento;
     }
 
     public String getNome() {
@@ -23,13 +23,14 @@ public class Usuario {
         return tipo;
     }
 
-    public void setDepartamento(String nomeDepartamento){
-        this.departamento = nomeDepartamento;
+    public String getDepartamento() {
+        return departamento;
     }
 
-    public void usuarioToString(){
-        System.out.println("Nome: "+getNome());
-        System.out.println("ID: "+getId());
-        System.out.println("Tipo: "+getTipo());
+    public void usuarioToString() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("ID: " + getId());
+        System.out.println("Tipo: " + getTipo());
+        System.out.println("Departamento: " + getDepartamento());
     }
 }

@@ -8,7 +8,20 @@ public class Pedido {
     private StatusPedido status;
     private ArrayList<Item> listaDePedidos;
 
-     public Pedido(int codigoPedido, Usuario usuario, String departamento, int dataPedido, int dataConclusao, StatusPedido status) {
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "codigoPedido=" + codigoPedido +
+                ", funcionario='" + funcionario + '\'' +
+                ", departamento='" + departamento + '\'' +
+                ", dataPedido=" + dataPedido +
+                ", dataConclusao=" + dataConclusao +
+                ", status=" + status +
+                ", listaDePedidos=" + listaDePedidos +
+                '}';
+    }
+
+    public Pedido(int codigoPedido, Usuario usuario, String departamento, int dataPedido, int dataConclusao, StatusPedido status) {
         this.codigoPedido = codigoPedido;
         this.funcionario = usuario.getNome();
         this.departamento = departamento;

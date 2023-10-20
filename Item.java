@@ -5,9 +5,8 @@ public class Item {
     private double valor;
     //private ArrayList<Item> itens =  new ArrayList<Item>();
 
-    public Item(String descricao, double valorUnitario, int quantidade, double valor) {
+    public Item(String descricao, int quantidade, double valor) {
         this.descricao = descricao;
-        this.valorUnitario = valorUnitario;
         this.quantidade = quantidade;
         this.valor = valor;
     }
