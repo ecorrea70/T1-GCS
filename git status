@@ -1,0 +1,29 @@
+[33mcommit 35a2707b78ea05be2868b39f390ac22aa35c22b7[m[33m ([m[1;36mHEAD -> [m[1;32mdevelopment[m[33m, [m[1;31morigin/development[m[33m)[m
+Author: Eduardo Corrêa <eduardodasilvacorrea70@gmail.com>
+Date:   Sun Sep 24 18:14:17 2023 -0300
+
+    Update README.md
+
+[33mcommit 3609d9e49b08f8c9dd14163f5b5d87cb18cbe9ed[m
+Author: ecorrea70 <eduardodasilvacorrea70@gmail.com>
+Date:   Sun Sep 24 18:06:09 2023 -0300
+
+    merge: merge da branch feat/criacao-de-classes-de-usuarios com a development
+
+[33mcommit 55b8263777344c9dd6e6eea5f8097eb2ba9840d9[m[33m ([m[1;31morigin/feat/criacao-de-classes-de-usuarios[m[33m)[m
+Author: ecorrea70 <eduardodasilvacorrea70@gmail.com>
+Date:   Sun Sep 24 18:03:06 2023 -0300
+
+    classes para criação de usuário
+
+[33mcommit 5615ea4921e81c0b487ee8b9b997ab2346e8a110[m
+Author: ecorrea70 <eduardodasilvacorrea70@gmail.com>
+Date:   Fri Sep 22 15:37:03 2023 -0300
+
+    branch init
+
+[33mcommit 164bab130ade3d3d5783b92a4a3eafde0204688d[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: ecorrea70 <eduardodasilvacorrea70@gmail.com>
+Date:   Fri Sep 15 18:20:55 2023 -0300
+
+    first commit
