@@ -1,3 +1,5 @@
+package Cadastro;
+
 import java.util.ArrayList;
 /*
  * Comparar a ID recebida pelo array usuario para poder acessar o usuário

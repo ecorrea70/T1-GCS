@@ -1,3 +1,8 @@
+package Departamentos;
+import Cadastro.Pedido;
+import Cadastro.Usuario;
+import Cadastro.Pedido;
+
 import java.util.ArrayList;
 public abstract class Departamento {
     private ArrayList<Usuario> listaDeFuncionarios;
@@ -18,7 +23,7 @@ public abstract class Departamento {
         return nomeDepartamento;
     }
 
-//    public void addFuncionario(Usuario usuario){
+//    public void addFuncionario(Cadastro.Usuario usuario){
 //        listaDeFuncionarios.add(usuario);
 //        usuario.setDepartamento(getNomeDepartamento());
 //    }

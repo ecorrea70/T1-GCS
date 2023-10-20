@@ -1,3 +1,8 @@
+package Cadastro;
+
+import Cadastro.TipoUsuario;
+import Departamentos.Departamento;
+
 public class Usuario {
     private String nome;
     private String id;
