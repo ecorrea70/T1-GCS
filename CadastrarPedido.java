@@ -53,12 +53,9 @@ public class CadastrarPedido {
         }
     }
 
-    public void alterarStatusDoPedido() {
-        identificaUser identifa = new identificaUser();
-        System.out.println("Digite o seu id ");
-        String user = entrada.nextLine();
-        Usuario u= identifa.encontraUser(user);
-        if (u.equals(TipoUsuario.ADMINISTRADOR)) {
+    public void alterarStatusDoPedido(Usuario usuario) {
+        Usuario u = usuario;
+        if (u.getTipo().equals(TipoUsuario.ADMINISTRADOR)) {
             System.out.println("Digite o codigo do pedido");
             int codigo = entrada.nextInt();
             for (Pedido p: pedidos) {

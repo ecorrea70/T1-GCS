@@ -6,7 +6,7 @@ public class Menu {
         Scanner entrada = new Scanner(System.in);
         CadastrarPedido cadastroPedidos = new CadastrarPedido();
 
-        //usurarios teste
+        //usuarios teste
         Usuario user1 = new Usuario("João", "110", TipoUsuario.FUNCIONARIO);
         Usuario user2 = new Usuario("Cláudio", "111", TipoUsuario.FUNCIONARIO);
         Usuario user3 = new Usuario("Antônio", "112", TipoUsuario.ADMINISTRADOR);
@@ -14,6 +14,7 @@ public class Menu {
         int opcao = 0;
 
         while (opcao!=1){
+
             menuInterativo();
             opcao = entrada.nextInt();
 
@@ -35,7 +36,7 @@ public class Menu {
                     break;
                 case 5:
                     System.out.println("Alterando status do pedido...");
-                    cadastroPedidos.alterarStatusDoPedido();
+                    cadastroPedidos.alterarStatusDoPedido(user3);
                     break;
                 case 6:
                     System.out.println("Buscando pedido pela descrição...");
