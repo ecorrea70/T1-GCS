@@ -6,6 +6,11 @@ public class Menu {
         Scanner entrada = new Scanner(System.in);
         CadastrarPedido cadastroPedidos = new CadastrarPedido();
 
+        RecursosHumanos rh = new RecursosHumanos();
+        Engenharia eng = new Engenharia();
+        Financeiro fin = new Financeiro();
+        Manutencao man = new Manutencao();
+
         //usuarios teste
         Usuario user1 = new Usuario("João", "110", TipoUsuario.FUNCIONARIO);
         Usuario user2 = new Usuario("Cláudio", "111", TipoUsuario.FUNCIONARIO);
@@ -22,6 +27,8 @@ public class Menu {
         Usuario user13 = new Usuario("Isabela", "122", TipoUsuario.FUNCIONARIO);
         Usuario user14 = new Usuario("Paola", "123", TipoUsuario.FUNCIONARIO);
         Usuario user15 = new Usuario("Eduarda", "124", TipoUsuario.FUNCIONARIO);
+
+        rh.addFuncionario(user1);
 
         int opcao = 0;
 
@@ -73,8 +80,8 @@ public class Menu {
                     cadastroPedidos.alterarStatusDoPedido(usuarioLogado);
                     break;
                 case 6:
-                    System.out.println("Buscando pedido pela descrição...");
-                    cadastroPedidos.buscarpelaDescricao();
+                    System.out.println("Buscando pedido...");
+                    cadastroPedidos.buscarSolicitante();
                     break;
                 case 7:
                     System.out.println("Visualizando detalhes do pedido...");
@@ -90,7 +97,7 @@ public class Menu {
         System.out.println("3 - Consultar pedidos");
         System.out.println("4 - Consultar valor total de pedido");
         System.out.println("5 - Alterar status do pedido");
-        System.out.println("6 - Buscar pedido pela descrição");
+        System.out.println("6 - Buscar pedido");
         System.out.println("7 - Visualizar detalhes do pedido");
 
     }

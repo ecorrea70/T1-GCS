@@ -69,11 +69,12 @@ public class Pedido {
         this.itens = itens;
     }
 
-    public Pedido(int codigoPedido, String funcionario, LocalDate dataPedido/* Date dataConclusao*/, String status, ArrayList<Item> itens) {
+    public Pedido(int codigoPedido, String funcionario, LocalDate dataPedido/* Date dataConclusao*/,  String departamento, String status,ArrayList<Item> itens) {
         this.codigoPedido = codigoPedido;
         this.funcionario = funcionario;
         this.dataPedido = dataPedido;
 //        this.dataConclusao = dataConclusao;
+        this.departamento = departamento;
         this.status = "aberto";
         this.itens = itens;
     }

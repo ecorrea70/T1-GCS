@@ -1,3 +1,5 @@
+import java.time.DateTimeException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -9,6 +11,8 @@ import static java.lang.Integer.parseInt;
 public class CadastrarPedido {
     Scanner entrada = new Scanner(System.in);
     CadastrarItem cadItem = new CadastrarItem();
+    ArrayList<Item> itens= new ArrayList<>();
+    String departamento;
 
     ArrayList<Pedido> pedidos = new ArrayList<>();
     public void cadastrarPedido(Usuario usuario){
@@ -24,6 +28,7 @@ public class CadastrarPedido {
         System.out.println("Ano:");
         int ano = entrada.nextInt();
         LocalDate data = LocalDate.of(ano, mes, dia);
+        departamento = u.getDepartamento();
         String status = "Aberto";
         System.out.println("Cadastrar itens ao pedido:");
         int option = 0;
@@ -36,18 +41,35 @@ public class CadastrarPedido {
                     entrada.nextLine();
                      option = entrada.nextInt();}
         }while(option!=1);
-        Pedido pedido = new Pedido(codigo, funcioanrio, data, status, cadItem.item.getItens());
+        Pedido pedido = new Pedido(codigo, funcioanrio, data, departamento, status, cadItem.item.getItens());
         pedidos.add(pedido);
     }
 
     public void valorTotal() {
+        double total = 0;
         System.out.println("Digite o codigo do pedido");
         int codigo = entrada.nextInt();
+
         for (Pedido p : pedidos) {
             if (p.getCodigoPedido() == codigo) {
+                ArrayList<Item> aux = p.getItens();
+                for (Item i : aux) {
+                    total += i.getValorTotal();
+                }
 
+                if (total <= 200) {
+                    System.out.println("O valor total do seu pedido é:" + total);
+                    ;
+                } else {
+                    System.out.println("O pedido ultrapassou o limite do departamento do pedido");
+                }
+
+            } else {
+                System.out.println("Não há itens cadastrados neste pedido");
             }
         }
+
+
     }
 
     public void alterarStatusDoPedido(Usuario usuario) {
@@ -88,13 +110,14 @@ public class CadastrarPedido {
 
     public  void listarPedidos() {
         System.out.println("Digite a data de inicio");
-        int dinicio = entrada.nextInt();
+        LocalDate dinicio = solicitarData();
+        entrada.nextLine();
         System.out.println("Digite a data final");
-        int dfinal = entrada.nextInt();
+        LocalDate dfinal = solicitarData();
 
         for (Pedido pedido : pedidos) {
-            int dataPedido = pedido.getCodigoPedido();
-            if (dataPedido >= dinicio && dataPedido <= dfinal) {
+            LocalDate dataPedido = pedido.getDataPedido();
+            if (dataPedido.isAfter(dinicio) && dataPedido.isBefore(dfinal) || dataPedido.isEqual(dinicio) || dataPedido.isEqual(dfinal)) {
                 System.out.println("O código do seu pedido é: " + pedido.getCodigoPedido());
                 System.out.println("Foi feito pelo departamento: " + pedido.getDepartamento());
                 System.out.println("O estado do pedido está como: " + pedido.getStatus());
@@ -102,19 +125,6 @@ public class CadastrarPedido {
         }
     }
 
-    public void buscarpelaDescricao(){
-        System.out.println("Digite a descriçao do item que deseja buscar");
-        String descricao = entrada.nextLine();
-        for (Pedido pedido : pedidos) {
-            ArrayList<Item> aux = pedido.getItens();
-            for (Item i : aux) {
-                if (i.getDescricao().equals(descricao)) {
-                    System.out.println("O pedido é :" + pedido);
-                }
-                else {System.out.println("O pedido nao foi encontrado :");}
-            }
-            }
-        }
 
         public void vizuDetalhes(){
             System.out.println("Digite o codigo do pedido");
@@ -128,7 +138,41 @@ public class CadastrarPedido {
                 }
             }
                 }
-    public void concluirPedido(Pedido pedido){
+
+    public LocalDate solicitarData() {
+        LocalDate data = null;
+        boolean dataValida = false;
+
+        while (!dataValida) {
+            try {
+                System.out.println("Dia:");
+                int dia = entrada.nextInt();
+                System.out.println("Mês:");
+                int mes = entrada.nextInt();
+                System.out.println("Ano:");
+                int ano = entrada.nextInt();
+
+                data = LocalDate.of(ano, mes, dia);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                String dataFormatada = data.format(formatter);
+                dataValida = true;
+            } catch (DateTimeException e) {
+                System.out.println("Data inválida. Certifique-se de inserir uma data válida.");
+                entrada.nextLine();
+            }
         }
 
+        return data;
+    }
+
+    public void buscarSolicitante(){
+        System.out.println("Digite o nome do funcionário solicitante:");
+        String funcionario = entrada.nextLine();
+        for (Pedido p: pedidos) {
+            if (p.getFuncionario().equals(funcionario)){
+                System.out.println(p.toString());
+            }
+        }
+        System.out.println("Não foi possível encontrar pedidos");
+    }
     }
