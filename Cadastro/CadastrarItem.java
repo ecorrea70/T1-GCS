@@ -15,7 +15,7 @@ public class CadastrarItem {
         System.out.println("Quantidade:");
         int quantidade = entrada.nextInt();
         double valorTotal = valorUnitario * quantidade;
-        item = new Item(descricao, valorUnitario, quantidade, valorTotal);
-        item.adicionarItem(item);
+        this.item = new Item(descricao, valorUnitario, quantidade, valorTotal);
+        this.item.adicionarItem(this.item);
     }
 }
