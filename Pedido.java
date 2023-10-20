@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.time.LocalDate;
+import java.util.Locale;
+
 public class Pedido {
     private int codigoPedido; //Não especifica mas precisa de um pra poder buscar o pedido depois
     private String funcionario; // saber qual o funcionario
     private String departamento; // esse aqui vai receber o departamento do funcionario de cima
-    private int dataPedido;
+    private LocalDate dataPedido;
 //    private Date dataConclusao;
     private String status;
     private ArrayList<Item> itens;
@@ -34,11 +37,11 @@ public class Pedido {
         this.departamento = departamento;
     }
 
-    public int getDataPedido() {
+    public LocalDate getDataPedido() {
         return dataPedido;
     }
 
-    public void setDataPedido(int dataPedido) {
+    public void setDataPedido(LocalDate dataPedido) {
         this.dataPedido = dataPedido;
     }
 
@@ -66,7 +69,7 @@ public class Pedido {
         this.itens = itens;
     }
 
-    public Pedido(int codigoPedido, String funcionario, String departamento, int dataPedido/* Date dataConclusao*/, String status, ArrayList<Item> itens) {
+    public Pedido(int codigoPedido, String funcionario, String departamento, LocalDate dataPedido/* Date dataConclusao*/, String status, ArrayList<Item> itens) {
         this.codigoPedido = codigoPedido;
         this.funcionario = funcionario;
         this.departamento = departamento;

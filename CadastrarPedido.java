@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.time.LocalDate;
+
+import static java.lang.Integer.parseInt;
+
 
 public class CadastrarPedido {
     Scanner entrada = new Scanner(System.in);
@@ -16,11 +20,29 @@ public class CadastrarPedido {
         System.out.println("Departamento:");
         String departamento = entrada.nextLine();
         System.out.println("Data:");
-        int data = new Date().getDay();
+        System.out.println("Dia:");
+        int dia = entrada.nextInt();
+        System.out.println("Mês:");
+        int mes = entrada.nextInt();
+        System.out.println("Ano:");
+        int ano = entrada.nextInt();
+        LocalDate data = LocalDate.of(ano, mes, dia);
         String status = "Aberto";
+        System.out.println("Cadastrar itens ao pedido:");
+        int option = 0;
+        do {
+            cadItem.cadastrarItem();
+            if (option ==0){
+                System.out.println("Deseja continuar?" +
+                     "[1] para NÃO                " +
+                     "[2] para SIM");
+                    entrada.nextLine();
+                     option = entrada.nextInt();}
+        }while(option!=1);
         Pedido pedido = new Pedido(codigo, funcioanrio, departamento, data, status, cadItem.item.getItens());
         pedidos.add(pedido);
     }
+
 
     public void valorTotal() {
         System.out.println("Digite o codigo do pedido");
@@ -35,6 +57,9 @@ public class CadastrarPedido {
 
         }
     }
+
+
+
 
     public void alterarStatusDoPedido() {
         identificaUser identifa = new identificaUser();
@@ -74,6 +99,7 @@ public class CadastrarPedido {
                 } else System.out.println("Funcionarios não podem alterar o status do pedido");
                 }
         }
+
             }
 
     public  void listarPedidos() {
@@ -83,12 +109,14 @@ public class CadastrarPedido {
         int dfinal = entrada.nextInt();
 
         for (Pedido pedido : pedidos) {
-            if (pedido.getDataPedido() >= dinicio && pedido.getDataPedido() <= dfinal) {
+            int dataPedido = pedido.getCodigoPedido();
+            if (dataPedido >= dinicio && dataPedido <= dfinal) {
                 System.out.println("O código do seu pedido é: " + pedido.getCodigoPedido());
                 System.out.println("Foi feito pelo departamento: " + pedido.getDepartamento());
                 System.out.println("O estado do pedido está como: " + pedido.getStatus());
             }
         }
+
     }
 
     public void buscarpelaDescricao(){
@@ -102,6 +130,7 @@ public class CadastrarPedido {
                 }
                 else {System.out.println("O pedido nao foi encontrado :");}
             }
+
             }
         }
 
@@ -117,6 +146,7 @@ public class CadastrarPedido {
                     System.out.println(p.getDepartamento());
                 }
             }
+
                 }
 
     public void concluirPedido(Pedido pedido){
