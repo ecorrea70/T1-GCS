@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Menu {
@@ -20,7 +19,7 @@ public class Menu {
                    break;
                case 2:
                    System.out.println("Cadastrando item:");
-                   cadItem.cadastrarItem(item);
+                   cadItem.cadastrarItem();
                    break;
                case 3:
                    System.out.println("Consultando itens: ");
