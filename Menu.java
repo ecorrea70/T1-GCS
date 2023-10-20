@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class Menu {
     public static void main(String[] args) {
@@ -6,6 +8,8 @@ public class Menu {
         int opcao = 0;
         RegistroPedidos registro = new RegistroPedidos();
         Usuario user1 = new Usuario("João", "110", TipoUsuario.FUNCIONARIO, "Departamento x");
+        List<Pedido> listaDePedidos = new ArrayList<>();
+        CadastrarPedido cadastroPedido = new CadastrarPedido(listaDePedidos);
 
         while (opcao!=1){
             menuInterativo();
@@ -16,24 +20,11 @@ public class Menu {
                     System.out.println("Saindo...");
                     break;
                 case 2:
-                    System.out.println("criando pedido...");
-                    System.out.println("Código: ");
-                    int codigo = entrada.nextInt();
-
-                    System.out.println("Data do pedido: ");
-                    int datapedido = entrada.nextInt();
-                    System.out.println("Data de conculsão");
-                    int dataconclusao = entrada.nextInt();
-                    StatusPedido status = StatusPedido.FECHADO;
-                    Pedido pedido1 = new Pedido(codigo, user1, user1.getDepartamento(), datapedido, dataconclusao, status);
-                    registro.adicionarPedido(pedido1);
+                    cadastroPedido.cadastrarPedido();
                     break;
                 case 3:
                     System.out.println("Consultando pedidos...");
-                    for (Pedido pedido : registro.getListaDePedidos()) {
-                        System.out.println(pedido.toString());
-                        System.out.println("------------------------------");
-                    }
+                    cadastroPedido.listarPedidos();
                     break;
             }
         }

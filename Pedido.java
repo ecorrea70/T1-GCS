@@ -6,7 +6,8 @@ public class Pedido {
     private int dataPedido;
     private int dataConclusao;
     private StatusPedido status;
-    private ArrayList<Item> listaDePedidos;
+    private ArrayList<Item> listaDeItens;
+
 
     @Override
     public String toString() {
@@ -17,7 +18,7 @@ public class Pedido {
                 ", dataPedido=" + dataPedido +
                 ", dataConclusao=" + dataConclusao +
                 ", status=" + status +
-                ", listaDePedidos=" + listaDePedidos +
+                ", listaDePedidos=" + listaDeItens +
                 '}';
     }
 
@@ -28,7 +29,7 @@ public class Pedido {
         this.dataPedido = dataPedido;
         this.dataConclusao = dataConclusao;
         this.status = status;
-        listaDePedidos = new ArrayList<>();
+        listaDeItens = new ArrayList<>();
     }
 
     public int getCodigoPedido() {
@@ -80,6 +81,10 @@ public class Pedido {
     }
     
     public void adicionarItem(Item i){
-        listaDePedidos.add(i);
+        listaDeItens.add(i);
+    }
+
+    public void adicionarPedido(Pedido pedido) {
+        listaDeItens = new ArrayList<>();
     }
 }

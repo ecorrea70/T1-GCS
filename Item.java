@@ -1,9 +1,11 @@
+import java.util.ArrayList;
+
 public class Item {
     private String descricao;
     private double valorUnitario;
     private int quantidade;
     private double valor;
-    //private ArrayList<Item> itens =  new ArrayList<Item>();
+    private ArrayList<Item> itens =  new ArrayList<Item>();
 
     public Item(String descricao, int quantidade, double valor) {
         this.descricao = descricao;
@@ -43,15 +45,12 @@ public class Item {
         this.valor = valor;
     }
 
-    //public ArrayList<Item> getItens() {
-    //    return itens;
-    //}
 
     //public void setItens(ArrayList<Item> itens) {
     //    this.itens = itens;
     //}
-    // public void adicionarItem(Item item){
-    //     itens.add(item);
-    //     System.out.println(itens.get(0).getDescricao()+"\n" +itens.get(0).getValorTotal());
-    // }
+     public void adicionarItem(Item item){
+         itens.add(item);
+         System.out.println(itens.get(0).getDescricao()+"\n" +itens.get(0).getValor());
+     }
 }
