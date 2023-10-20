@@ -100,7 +100,7 @@ public class Menu {
                     break;
                 case 6:
                     System.out.println("Buscando pedido...");
-                    cadastroPedidos.buscarSolicitante();
+                    cadastroPedidos.buscarSolicitante(usuarioLogado);
                     break;
                 case 7:
                     System.out.println("Visualizando detalhes do pedido...");
