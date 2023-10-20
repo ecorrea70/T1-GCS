@@ -8,7 +8,7 @@ public class Pedido {
     private String funcionario; // saber qual o funcionario
     private String departamento; // esse aqui vai receber o departamento do funcionario de cima
     private LocalDate dataPedido;
-//    private Date dataConclusao;
+    //    private Date dataConclusao;
     private String status;
     private ArrayList<Item> itens;
     private ArrayList<Pedido> pedidos;

@@ -1,3 +1,5 @@
+package Cadastro;
+
 import java.util.Scanner;
 
 public class CadastrarItem {
@@ -6,6 +8,7 @@ public class CadastrarItem {
 
     public void cadastrarItem(){
         System.out.println("Descrição:");
+        entrada.nextLine();
         String descricao = entrada.nextLine();
         System.out.println("Valor:");
         double valorUnitario = entrada.nextDouble();

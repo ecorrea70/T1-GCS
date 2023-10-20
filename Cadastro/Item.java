@@ -1,3 +1,5 @@
+package Cadastro;
+
 import java.util.ArrayList;
 
 public class Item {
@@ -5,7 +7,7 @@ public class Item {
     private double valorUnitario;
     private int quantidade;
     private double valorTotal;
-    private ArrayList<Item> itens = new ArrayList<Item>();
+    private ArrayList<Item> itens =  new ArrayList<Item>();
 
     public Item(String descricao, double valorUnitario, int quantidade, double valorTotal) {
     }
@@ -46,8 +48,19 @@ public class Item {
         return itens;
     }
 
-    public void adicionarItem(Item item) {
+    public void setItens(ArrayList<Item> itens) {
+        this.itens = itens;
+    }
+
+    public Item(String descricao, double valorUnitario, int quantidade, double valorTotal) {
+        this.descricao = descricao;
+        this.valorUnitario = valorUnitario;
+        this.quantidade = quantidade;
+        this.valorTotal = valorTotal;
+        this.itens = itens;
+    }
+    public void adicionarItem(Item item){
         itens.add(item);
-        System.out.println(item.getDescricao() + "\n" + item.getValorTotal());
+        System.out.println(itens.get(0).getDescricao()+"\n" +itens.get(0).getValorTotal());
     }
 }

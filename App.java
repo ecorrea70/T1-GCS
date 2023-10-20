@@ -1,3 +1,10 @@
+import Cadastro.CadastrarPedido;
+import Cadastro.TipoUsuario;
+import Cadastro.Usuario;
+import Departamentos.Financeiro;
+import Departamentos.Engenharia;
+import Departamentos.Departamento;
+import Departamentos.Financeiro;
 public class App {
     public static void main(String[] args) {
         // Criação de usuários
@@ -16,12 +23,12 @@ public class App {
         Usuario user13 = new Usuario("Isabela", "122", TipoUsuario.FUNCIONARIO);
         Usuario user14 = new Usuario("Paola", "123", TipoUsuario.FUNCIONARIO);
         Usuario user15 = new Usuario("Eduarda", "124", TipoUsuario.FUNCIONARIO);
-        
+
 
 
         // Teste
         System.out.println("Usuário 1: " + user1.getNome());
-        System.out.println("ID do Usuário 2: " + user2.getId()); 
+        System.out.println("ID do Usuário 2: " + user2.getId());
         System.out.println("Usuário 3: "+user3.getNome());
         System.out.println("ID do Usuário 3: "+user3.getId());
 //<<<<<<< HEAD
