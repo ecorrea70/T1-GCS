@@ -29,7 +29,7 @@ public class App {
         Financeiro pDepartamento = new Financeiro();
 //=======
         CadastrarPedido cadPedido = new CadastrarPedido();
-        cadPedido.cadastrarPedido();
+        cadPedido.cadastrarPedido(user1);
 
 //>>>>>>> bcb163bb546e29ad743440a43f98c60c77dd2377
     }

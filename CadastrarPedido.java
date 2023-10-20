@@ -11,14 +11,11 @@ public class CadastrarPedido {
     CadastrarItem cadItem = new CadastrarItem();
 
     ArrayList<Pedido> pedidos = new ArrayList<>();
-    public void cadastrarPedido(){
+    public void cadastrarPedido(Usuario usuario){
+        Usuario u = usuario;
         System.out.println("Código");
         int codigo = entrada.nextInt();
-        System.out.println("Funcionario:");
-        entrada.nextLine();
-        String funcioanrio = entrada.nextLine();
-        System.out.println("Departamento:");
-        String departamento = entrada.nextLine();
+        String funcioanrio = u.getNome();
         System.out.println("Data:");
         System.out.println("Dia:");
         int dia = entrada.nextInt();
@@ -39,7 +36,7 @@ public class CadastrarPedido {
                     entrada.nextLine();
                      option = entrada.nextInt();}
         }while(option!=1);
-        Pedido pedido = new Pedido(codigo, funcioanrio, departamento, data, status, cadItem.item.getItens());
+        Pedido pedido = new Pedido(codigo, funcioanrio, data, status, cadItem.item.getItens());
         pedidos.add(pedido);
     }
 
@@ -125,10 +122,9 @@ public class CadastrarPedido {
             for (Pedido p: pedidos) {
                 if (p.getCodigoPedido() == codigo) {
 
-                    System.out.println(p.getFuncionario());
-                    System.out.println(p.getStatus());
-                    System.out.println(p.getDataPedido());
-                    System.out.println(p.getDepartamento());
+                    System.out.println("Funcionário: "+p.getFuncionario());
+                    System.out.println("Status do pedido: "+p.getStatus());
+                    System.out.println("Data do pedido: "+p.getDataPedido());
                 }
             }
                 }

@@ -10,13 +10,47 @@ public class Menu {
         Usuario user1 = new Usuario("João", "110", TipoUsuario.FUNCIONARIO);
         Usuario user2 = new Usuario("Cláudio", "111", TipoUsuario.FUNCIONARIO);
         Usuario user3 = new Usuario("Antônio", "112", TipoUsuario.ADMINISTRADOR);
+        Usuario user4 = new Usuario("Eduardo", "113", TipoUsuario.ADMINISTRADOR);
+        Usuario user5 = new Usuario("Diogo", "114", TipoUsuario.ADMINISTRADOR);
+        Usuario user6 = new Usuario("Victor", "115", TipoUsuario.ADMINISTRADOR);
+        Usuario user7 = new Usuario("Felipe", "116", TipoUsuario.ADMINISTRADOR);
+        Usuario user8 = new Usuario("Leonardo", "117", TipoUsuario.ADMINISTRADOR);
+        Usuario user9 = new Usuario("Diego", "118", TipoUsuario.FUNCIONARIO);
+        Usuario user10 = new Usuario("Roberto", "119", TipoUsuario.FUNCIONARIO);
+        Usuario user11= new Usuario("Luana", "120", TipoUsuario.FUNCIONARIO);
+        Usuario user12 = new Usuario("Laura", "121", TipoUsuario.FUNCIONARIO);
+        Usuario user13 = new Usuario("Isabela", "122", TipoUsuario.FUNCIONARIO);
+        Usuario user14 = new Usuario("Paola", "123", TipoUsuario.FUNCIONARIO);
+        Usuario user15 = new Usuario("Eduarda", "124", TipoUsuario.FUNCIONARIO);
 
         int opcao = 0;
+
+        Usuario usuarioLogado = null;
+
+        System.out.print("Digite o ID do usuário: ");
+        String idUsuario = entrada.next();
+
+        Usuario[] usuarios = {user1, user2, user3, user4, user5, user6, user7, user8, user8, user9, user10, user11, user12, user13, user14, user15};
+
+        for (Usuario usuario : usuarios) {
+            if (usuario.getId().equals(idUsuario)) {
+                usuarioLogado = usuario;
+                break;
+            }
+        }
+
+        if (usuarioLogado == null) {
+            System.out.println("Usuário não encontrado. Saindo...");
+            return;
+        } else {
+            System.out.println("Bem vindo " + usuarioLogado.getNome() + "!");
+        }
 
         while (opcao!=1){
 
             menuInterativo();
             opcao = entrada.nextInt();
+
 
             switch (opcao){
                 case 1:
@@ -24,7 +58,7 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("Cadastrando pedido...");
-                    cadastroPedidos.cadastrarPedido();
+                    cadastroPedidos.cadastrarPedido(usuarioLogado);
                     break;
                 case 3:
                     System.out.println("Consultando pedidos...");
@@ -36,7 +70,7 @@ public class Menu {
                     break;
                 case 5:
                     System.out.println("Alterando status do pedido...");
-                    cadastroPedidos.alterarStatusDoPedido(user3);
+                    cadastroPedidos.alterarStatusDoPedido(usuarioLogado);
                     break;
                 case 6:
                     System.out.println("Buscando pedido pela descrição...");
