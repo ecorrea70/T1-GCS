@@ -1,16 +1,11 @@
+import java.util.ArrayList;
+
 public class Item {
     private String descricao;
     private double valorUnitario;
     private int quantidade;
-    private double valor;
-    //private ArrayList<Item> itens =  new ArrayList<Item>();
-
-    public Item(String descricao, double valorUnitario, int quantidade, double valor) {
-        this.descricao = descricao;
-        this.valorUnitario = valorUnitario;
-        this.quantidade = quantidade;
-        this.valor = valor;
-    }
+    private double valorTotal;
+    private ArrayList<Item> itens =  new ArrayList<Item>();
 
     public String getDescricao() {
         return descricao;
@@ -36,23 +31,31 @@ public class Item {
         this.quantidade = quantidade;
     }
 
-    public double getValor() {
-        return valor;
+    public double getValorTotal() {
+        return valorTotal;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
-    //public ArrayList<Item> getItens() {
-    //    return itens;
-    //}
+    public ArrayList<Item> getItens() {
+        return itens;
+    }
 
-    //public void setItens(ArrayList<Item> itens) {
-    //    this.itens = itens;
-    //}
-    // public void adicionarItem(Item item){
-    //     itens.add(item);
-    //     System.out.println(itens.get(0).getDescricao()+"\n" +itens.get(0).getValorTotal());
-    // }
+    public void setItens(ArrayList<Item> itens) {
+        this.itens = itens;
+    }
+
+    public Item(String descricao, double valorUnitario, int quantidade, double valorTotal) {
+        this.descricao = descricao;
+        this.valorUnitario = valorUnitario;
+        this.quantidade = quantidade;
+        this.valorTotal = valorTotal;
+        this.itens = itens;
+    }
+    public void adicionarItem(Item item){
+        itens.add(item);
+        System.out.println(itens.get(0).getDescricao()+"\n" +itens.get(0).getValorTotal());
+    }
 }
