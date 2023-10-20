@@ -1,4 +1,8 @@
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.Scanner;
 public abstract class Estatistica_Pedidos {
 
@@ -16,40 +20,40 @@ public abstract class Estatistica_Pedidos {
                 int tamanho = pedidos.size();
                 String defr;
                 String Icemr;
-                System.out.println("NUMERO DE PEDIDOS:"+tamanho);
+                String knc;
+                System.out.println("NUMERO DE PEDIDOS:" + tamanho);
                 try {
-                        defr = String.valueOf(l.getStatus().equals(StatusPedido.APROVADO));
-                             int pedidoaprova = Integer.parseInt(defr);
-                                 double calculoporcent = ((double) pedidoaprova / tamanho) * 100;
-                                     String inddh = String.format("%.Of", calculoporcent);
-                                        System.out.println("PORCENTAGEM DE APROVAÇÃO:"+inddh + "%");
+                    defr = String.valueOf(l.getStatus().equals(StatusPedido.APROVADO));
+                    int pedidoaprova = Integer.parseInt(defr);
+                    double calculoporcent = ((double) pedidoaprova / tamanho) * 100;
+                    String inddh = String.format("%.Of", calculoporcent);
+                    System.out.println("PORCENTAGEM DE APROVAÇÃO:" + inddh + "%");
 
 
-                         Icemr = String.valueOf(l.getStatus().equals(StatusPedido.FECHADO));
-                         int pedidofechado = Integer.parseInt(Icemr);
-                                 double calcluporcentfec = ((double) pedidofechado / tamanho) * 100;
-                                    String lpdkd = String.format("%.Of", calcluporcentfec);
-                                         System.out.println("PORCENTAGEM DE FECHADO:"+lpdkd + "%");
+                    Icemr = String.valueOf(l.getStatus().equals(StatusPedido.FECHADO));
+                    int pedidofechado = Integer.parseInt(Icemr);
+                    double calcluporcentfec = ((double) pedidofechado / tamanho) * 100;
+                    String lpdkd = String.format("%.Of", calcluporcentfec);
+                    System.out.println("PORCENTAGEM DE FECHADO:" + lpdkd + "%");
 
 
+                          // knc=String.valueOf(l.getDataPedido().equals(LocalDate.EPOCH.minus(Period.ofDays(30))));
+                          //  int juij=Integer.parseInt(knc);
 
+                     //Date JK= new Date(juij);
+                       // for (Pedido M:pedidos) {
+                           // int kl;
+                        //if(M.getDataPedido().equals(JK);
+//
+                       // }
 
+                } catch (Exception e) {
 
-
-
-
-                }catch (Exception e){
 
                 }
             }
 
+
         }
     }
-
-
-
-
-
-
-
 }

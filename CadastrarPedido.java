@@ -59,7 +59,7 @@ public class CadastrarPedido {
             System.out.println("Digite o codigo do pedido");
             int codigo = entrada.nextInt();
             for (Pedido p: pedidos) {
-                if(p.getStatus().equalsIgnoreCase("Aberto")) {
+                if(p.getStatus().equals(StatusPedido.ABERTO)) {
                     if (p.getCodigoPedido() == codigo) {
                         System.out.println("STATUS: " + p.getStatus());
                         System.out.println("Escolha uma opção: ");
@@ -70,12 +70,12 @@ public class CadastrarPedido {
 
                         switch (escolha) {
                             case 1:
-                                p.setStatus("Aprovado");
+                                p.setStatus(StatusPedido.APROVADO.name());
                                 System.out.println("pedido aprovado");
                                 break;
                             case 2:
-                                p.setStatus("Reprovado");
-                                System.out.println("pedido aprovado");
+                                p.setStatus(StatusPedido.FECHADO.name());
+                                System.out.println("pedido fechado");
                                 break;
                             default:
                                 System.out.println("Opção inválida.");
