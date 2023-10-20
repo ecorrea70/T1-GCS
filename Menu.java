@@ -1,5 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
+import Cadastro.CadastrarPedido;
+import Cadastro.TipoUsuario;
+import Cadastro.Usuario;
+
 import java.util.Scanner;
 public class Menu {
     public static void main(String[] args) {

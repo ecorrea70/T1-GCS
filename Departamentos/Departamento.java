@@ -1,3 +1,8 @@
+package Departamentos;
+import Cadastro.Pedido;
+import Cadastro.Usuario;
+import Cadastro.Pedido;
+
 import java.util.ArrayList;
 public abstract class Departamento {
     private ArrayList<Usuario> listaDeFuncionarios;
@@ -18,10 +23,17 @@ public abstract class Departamento {
         return nomeDepartamento;
     }
 
+<<<<<<< HEAD:Departamento.java
     public void addFuncionario(Usuario usuario){
         listaDeFuncionarios.add(usuario);
         usuario.setDepartamento(getNomeDepartamento());
     }
+=======
+//    public void addFuncionario(Cadastro.Usuario usuario){
+//        listaDeFuncionarios.add(usuario);
+//        usuario.setDepartamento(getNomeDepartamento());
+//    }
+>>>>>>> feat/correções:Departamentos/Departamento.java
 
     public boolean addPedidos(Pedido pedido){
         if (valorAtualPedidos <= valorMaxPedidos){

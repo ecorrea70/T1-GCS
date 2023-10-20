@@ -46,7 +46,7 @@ git shortlog -s -n --all --no-merges
 #### Detalhamento
 
 1. O sistema deverá permitir escolher o usuário atual a qualquer momento. Cada usuário tem um identificador, um nome e o seu tipo: funcionário ou administrador.
-2. A empresa possui diversos departamentos (ex. Financeiro, RH, Engenharia, Manutenção, etc). Cada departamento tem um valor máximo permitido por pedido. [o sistema deverá iniciar com dados já cadastrados de pelo menos 5 departamentos; não é necessário implementar funções de inclusão nem exclusão de departamentos].
+2. A empresa possui diversos departamentos (ex. Departamentos.Financeiro, RH, Departamentos.Engenharia, Manutenção, etc). Cada departamento tem um valor máximo permitido por pedido. [o sistema deverá iniciar com dados já cadastrados de pelo menos 5 departamentos; não é necessário implementar funções de inclusão nem exclusão de departamentos].
 3. Cada funcionários está alocado em um destes departamentos. [o sistema deverá iniciar com dados já cadastrados de pelo menos 15 funcionários, associados aos seus departamentos].
 4. O sistema deverá permitir a um funcionário ou administrador registrar um novo pedido de aquisição.
 5. Cada pedido de aquisição deverá conter:
