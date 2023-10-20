@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Cadastro.Pedido;
 public abstract class Estatistica_Pedidos {
 
     Scanner sc = new Scanner(System.in);
