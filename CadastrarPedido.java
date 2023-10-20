@@ -183,10 +183,14 @@ public class CadastrarPedido {
                     }
 
                 }
+                else {
+                    System.out.println("STATUS: " +p.getStatus());
+                    System.out.println("O pedido não pode ser excluido");
+                }
 
             }
         }
-        
+
 
 
         System.out.println("Não tem pedidos  relacionado a esse funcionario");
@@ -194,16 +198,6 @@ public class CadastrarPedido {
 
 
 
-    public void buscarSolicitante(){
-        System.out.println("Digite o nome do funcionário solicitante:");
-        String funcionario = entrada.nextLine();
-        for (Pedido p: pedidos) {
-            if (p.getFuncionario().equals(funcionario)){
-                System.out.println(p.toString());
-            }
-        }
-        System.out.println("Não foi possível encontrar pedidos");
-    }
 
 
     public void Exclui(Pedido p){
