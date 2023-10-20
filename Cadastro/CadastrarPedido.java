@@ -1,10 +1,7 @@
-<<<<<<< HEAD:CadastrarPedido.java
-=======
 package Cadastro;
 
 import Cadastro.CadastrarItem;
 
->>>>>>> feat/correções:Cadastro/CadastrarPedido.java
 import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -21,22 +18,7 @@ public class CadastrarPedido {
     String departamento;
 
     ArrayList<Pedido> pedidos = new ArrayList<>();
-<<<<<<< HEAD:CadastrarPedido.java
-    public void cadastrarPedido(Usuario usuario){
-        Usuario u = usuario;
-        System.out.println("Código");
-        int codigo = entrada.nextInt();
-        String funcioanrio = u.getNome();
-        System.out.println("Data:");
-        System.out.println("Dia:");
-        int dia = entrada.nextInt();
-        System.out.println("Mês:");
-        int mes = entrada.nextInt();
-        System.out.println("Ano:");
-        int ano = entrada.nextInt();
-        LocalDate data = LocalDate.of(ano, mes, dia);
-        departamento = u.getDepartamento();
-=======
+
     private LocalDate data;
 
     public LocalDate solicitarData() {
@@ -65,17 +47,12 @@ public class CadastrarPedido {
         return data;
     }
 
-    public void cadastrarPedido(){
+    public void cadastrarPedido(Usuario usuario){
+        Usuario u = usuario;
         System.out.println("Código");
         int codigo = entrada.nextInt();
-        System.out.println("Funcionario:");
-        entrada.nextLine();
-        String funcioanrio = entrada.nextLine();
-        System.out.println("Departamento:");
-        String departamento = entrada.nextLine();
         System.out.println("Digite a data");
         data = solicitarData();
->>>>>>> feat/correções:Cadastro/CadastrarPedido.java
         String status = "Aberto";
         System.out.println("Cadastrar itens ao pedido:");
         int option = 0;
@@ -88,7 +65,8 @@ public class CadastrarPedido {
                     entrada.nextLine();
                      option = entrada.nextInt();}
         }while(option!=1);
-        Pedido pedido = new Pedido(codigo, funcioanrio, data, departamento, status, cadItem.item.getItens());
+        departamento = u.getDepartamento();
+        Pedido pedido = new Pedido(codigo, u.getNome(), data, departamento, status, cadItem.item.getItens());
         pedidos.add(pedido);
     }
 
@@ -179,47 +157,17 @@ public class CadastrarPedido {
             for (Pedido p: pedidos) {
                 if (p.getCodigoPedido() == codigo) {
 
-<<<<<<< HEAD:CadastrarPedido.java
-                    System.out.println("Funcionário: "+p.getFuncionario());
-                    System.out.println("Status do pedido: "+p.getStatus());
-                    System.out.println("Data do pedido: "+p.getDataPedido());
-=======
                     System.out.println(p.getFuncionario());
                     System.out.println(p.getStatus());
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     String dataFormatada = p.getDataPedido().format(formatter);
                     System.out.println("Data do Pedido: " + dataFormatada);
                     System.out.println(p.getDepartamento());
->>>>>>> feat/correções:Cadastro/CadastrarPedido.java
                 }
             }
                 }
 
-    public LocalDate solicitarData() {
-        LocalDate data = null;
-        boolean dataValida = false;
 
-        while (!dataValida) {
-            try {
-                System.out.println("Dia:");
-                int dia = entrada.nextInt();
-                System.out.println("Mês:");
-                int mes = entrada.nextInt();
-                System.out.println("Ano:");
-                int ano = entrada.nextInt();
-
-                data = LocalDate.of(ano, mes, dia);
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                String dataFormatada = data.format(formatter);
-                dataValida = true;
-            } catch (DateTimeException e) {
-                System.out.println("Data inválida. Certifique-se de inserir uma data válida.");
-                entrada.nextLine();
-            }
-        }
-
-        return data;
-    }
 
     public void buscarSolicitante(){
         System.out.println("Digite o nome do funcionário solicitante:");

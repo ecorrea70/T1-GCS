@@ -3,7 +3,7 @@ package Departamentos;
 import Departamentos.Departamento;
 
 public class Manutencao extends Departamento {
-    Manutencao(){
+    public Manutencao(){
         super(40, "Departamentos.Departamento de Manutenção");
     }
 

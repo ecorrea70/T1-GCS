@@ -1,6 +1,9 @@
 import Cadastro.CadastrarPedido;
 import Cadastro.TipoUsuario;
 import Cadastro.Usuario;
+import Departamentos.Financeiro;
+import Departamentos.Manutencao;
+import Departamentos.RecursosHumanos;
 
 import java.util.Scanner;
 public class Menu {
@@ -31,6 +34,20 @@ public class Menu {
         Usuario user15 = new Usuario("Eduarda", "124", TipoUsuario.FUNCIONARIO);
 
         rh.addFuncionario(user1);
+        rh.addFuncionario(user2);
+        rh.addFuncionario(user3);
+        rh.addFuncionario(user4);
+        rh.addFuncionario(user5);
+        rh.addFuncionario(user6);
+        eng.addFuncionario(user7);
+        eng.addFuncionario(user8);
+        eng.addFuncionario(user9);
+        fin.addFuncionario(user10);
+        fin.addFuncionario(user11);
+        man.addFuncionario(user12);
+        man.addFuncionario(user13);
+        man.addFuncionario(user14);
+        man.addFuncionario(user15);
 
         int opcao = 0;
 

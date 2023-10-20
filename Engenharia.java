@@ -1,3 +1,5 @@
+import Departamentos.Departamento;
+
 public class Engenharia extends Departamento{
     public double getValor() {
         return valor;

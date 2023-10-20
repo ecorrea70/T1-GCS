@@ -23,17 +23,10 @@ public abstract class Departamento {
         return nomeDepartamento;
     }
 
-<<<<<<< HEAD:Departamento.java
     public void addFuncionario(Usuario usuario){
         listaDeFuncionarios.add(usuario);
         usuario.setDepartamento(getNomeDepartamento());
     }
-=======
-//    public void addFuncionario(Cadastro.Usuario usuario){
-//        listaDeFuncionarios.add(usuario);
-//        usuario.setDepartamento(getNomeDepartamento());
-//    }
->>>>>>> feat/correções:Departamentos/Departamento.java
 
     public boolean addPedidos(Pedido pedido){
         if (valorAtualPedidos <= valorMaxPedidos){
