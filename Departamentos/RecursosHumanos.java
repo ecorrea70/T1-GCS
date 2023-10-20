@@ -4,6 +4,6 @@ import Departamentos.Departamento;
 
 public class RecursosHumanos extends Departamento {
     public RecursosHumanos(){
-        super(30, "Departamentos.Departamento de Recursos Humanos");
+        super(30, "Departamento de Recursos Humanos");
     }
 }

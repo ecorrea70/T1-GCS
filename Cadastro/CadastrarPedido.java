@@ -157,28 +157,16 @@ public class CadastrarPedido {
             for (Pedido p: pedidos) {
                 if (p.getCodigoPedido() == codigo) {
 
-                    System.out.println(p.getFuncionario());
-                    System.out.println(p.getStatus());
+                    System.out.println("Funcionário: "+p.getFuncionario());
+                    System.out.println("Funcionário: "+p.getStatus());
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     String dataFormatada = p.getDataPedido().format(formatter);
                     System.out.println("Data do Pedido: " + dataFormatada);
-                    System.out.println(p.getDepartamento());
+                    System.out.println("Departamento"+p.getDepartamento());
                 }
             }
                 }
 
-
-
-    // public void buscarSolicitante(){
-    //     System.out.println("Digite o nome do funcionário solicitante:");
-    //     String funcionario = entrada.nextLine();
-    //     for (Pedido p: pedidos) {
-    //         if (p.getFuncionario().equals(funcionario)){
-    //             System.out.println(p.toString());
-    //         }
-    //     }
-    //     System.out.println("Não foi possível encontrar pedidos");
-    // }
     public void buscarSolicitante(Usuario usuario) {
         String funcionario = usuario.getNome();
         boolean encontrouPedidos = false;
