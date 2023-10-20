@@ -1,7 +1,7 @@
-package Cadastro;
-
 import java.util.ArrayList;
+import java.util.Date;
 import java.time.LocalDate;
+import java.util.Locale;
 
 public class Pedido {
     private int codigoPedido; //Não especifica mas precisa de um pra poder buscar o pedido depois
@@ -82,7 +82,7 @@ public class Pedido {
 //    public void concluiPedido(){ // Para poder concluir o pedido e pegar a data atual dele
 //        dataConclusao = new Date();
 //    }
-//    public void adicionarPedido(Cadastro.Pedido pedido){
+//    public void adicionarPedido(Pedido pedido){
 //       pedidos.add(pedido);
 //        System.out.println(pedido.codigoPedido + pedido.itens.get(0).getQuantidade());
 //    }
