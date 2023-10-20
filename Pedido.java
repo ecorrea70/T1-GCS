@@ -79,6 +79,16 @@ public class Pedido {
         this.itens = itens;
     }
 
+
+    public Item buscaItem (String d) {
+        for (Item i : itens) {
+            if (d.equalsIgnoreCase(i.getDescricao())) {
+                return i;
+            }
+
+        } return null;
+    }
+}
 //    public void concluiPedido(){ // Para poder concluir o pedido e pegar a data atual dele
 //        dataConclusao = new Date();
 //    }
@@ -86,6 +96,3 @@ public class Pedido {
 //       pedidos.add(pedido);
 //        System.out.println(pedido.codigoPedido + pedido.itens.get(0).getQuantidade());
 //    }
-
-
-}

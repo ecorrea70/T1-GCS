@@ -9,14 +9,19 @@ import static java.lang.Integer.parseInt;
 public class CadastrarPedido {
     Scanner entrada = new Scanner(System.in);
     CadastrarItem cadItem = new CadastrarItem();
-
+    Engenharia engenharia = new Engenharia();
+    Financeiro financeiro = new Financeiro();
+    Manutencao manutencao = new Manutencao();
+    RecursosHumanos recursosHumanos = new RecursosHumanos();
     ArrayList<Pedido> pedidos = new ArrayList<>();
-    public void cadastrarPedido(){
+    ArrayList<Item> itens = new ArrayList<>();
+
+    public void cadastrarPedido() {
         System.out.println("Código");
         int codigo = entrada.nextInt();
         System.out.println("Funcionario:");
         entrada.nextLine();
-        String funcioanrio = entrada.nextLine();
+        String funcionario = entrada.nextLine();
         System.out.println("Departamento:");
         String departamento = entrada.nextLine();
         System.out.println("Data:");
@@ -32,34 +37,53 @@ public class CadastrarPedido {
         int option = 0;
         do {
             cadItem.cadastrarItem();
-            if (option ==0){
+            if (option == 0) {
                 System.out.println("Deseja continuar?" +
-                     "[1] para NÃO                " +
-                     "[2] para SIM");
-                    entrada.nextLine();
-                     option = entrada.nextInt();}
-        }while(option!=1);
-        Pedido pedido = new Pedido(codigo, funcioanrio, departamento, data, status, cadItem.item.getItens());
+                        "[1] para NÃO                " +
+                        "[2] para SIM");
+                entrada.nextLine();
+                option = entrada.nextInt();
+            }
+        } while (option != 1);
+        Pedido pedido = new Pedido(codigo, funcionario, departamento, data, status, cadItem.item.getItens());
         pedidos.add(pedido);
     }
 
     public void valorTotal() {
+        double total = 0;
         System.out.println("Digite o codigo do pedido");
         int codigo = entrada.nextInt();
+
         for (Pedido p : pedidos) {
             if (p.getCodigoPedido() == codigo) {
+                ArrayList<Item> aux = p.getItens();
+                for (Item i : aux) {
+                    total += i.getValorTotal();
+                }
 
+                if (total <= 200) {
+                    System.out.println("O valor total do seu pedido é:" + total);
+                    ;
+                } else {
+                    System.out.println("O pedido ultrapassou o limite do departamento do pedido");
+                }
+
+            } else {
+                System.out.println("Não há itens cadastrados neste pedido");
             }
         }
+
+
     }
+
 
     public void alterarStatusDoPedido(Usuario usuario) {
         Usuario u = usuario;
         if (u.getTipo().equals(TipoUsuario.ADMINISTRADOR)) {
             System.out.println("Digite o codigo do pedido");
             int codigo = entrada.nextInt();
-            for (Pedido p: pedidos) {
-                if(p.getStatus().equalsIgnoreCase("Aberto")) {
+            for (Pedido p : pedidos) {
+                if (p.getStatus().equalsIgnoreCase("Aberto")) {
                     if (p.getCodigoPedido() == codigo) {
                         System.out.println("STATUS: " + p.getStatus());
                         System.out.println("Escolha uma opção: ");
@@ -85,11 +109,12 @@ public class CadastrarPedido {
                         System.out.println("Este pedido já está concluído");
                     }
                 } else System.out.println("Funcionarios não podem alterar o status do pedido");
-                }
-        }
-            }
 
-    public  void listarPedidos() {
+            }
+        }
+    }
+
+    public void listarPedidos() {
         System.out.println("Digite a data de inicio");
         int dinicio = entrada.nextInt();
         System.out.println("Digite a data final");
@@ -105,34 +130,85 @@ public class CadastrarPedido {
         }
     }
 
-    public void buscarpelaDescricao(){
+    public void buscarpelaDescricao() {
         System.out.println("Digite a descriçao do item que deseja buscar");
         String descricao = entrada.nextLine();
-        for (Pedido pedido : pedidos) {
-            ArrayList<Item> aux = pedido.getItens();
-            for (Item i : aux) {
-                if (i.getDescricao().equals(descricao)) {
-                    System.out.println("O pedido é :" + pedido);
+        for (Item i : itens) {
+            if (i.getDescricao().equals(descricao)) {
+                for (Pedido p : pedidos) {
+                    if (p.getItens().equals(i)) {
+                        System.out.println("O pedido é :" + p.toString());
+                    }
+                    else {
+                        System.out.println("O pedido nao foi encontrado :");
+                    }
                 }
-                else {System.out.println("O pedido nao foi encontrado :");}
-            }
             }
         }
-
-        public void vizuDetalhes(){
-            System.out.println("Digite o codigo do pedido");
-            int codigo = entrada.nextInt();
-            for (Pedido p: pedidos) {
-                if (p.getCodigoPedido() == codigo) {
-
-                    System.out.println(p.getFuncionario());
-                    System.out.println(p.getStatus());
-                    System.out.println(p.getDataPedido());
-                    System.out.println(p.getDepartamento());
-                }
-            }
-                }
-    public void concluirPedido(Pedido pedido){
-        }
-
     }
+
+    public void vizuDetalhes() {
+        System.out.println("Digite o codigo do pedido");
+        int codigo = entrada.nextInt();
+        for (Pedido p : pedidos) {
+            if (p.getCodigoPedido() == codigo) {
+
+                System.out.println(p.getFuncionario());
+                System.out.println(p.getStatus());
+                System.out.println(p.getDataPedido());
+                System.out.println(p.getDepartamento());
+            }
+        }
+    }
+
+    public void excluirPedido() {
+        System.out.println("Digite o nome do funcionário para poder excluir um pedido:");
+        String funcionario = entrada.nextLine();
+        for (Pedido p: pedidos) {
+            if (p.getFuncionario().equals(funcionario)){
+                System.out.println("O pedido é:" +p.toString());
+                if (p.getStatus().equals("Aberto")){
+                    System.out.println("1 - Apagar");
+                    System.out.println("2 - Cancelar");
+                    int escolha = entrada.nextInt();
+
+                    switch (escolha) {
+                        case 1:
+                            Exclui(p);
+                            System.out.println("Pedido excluido");
+                            break;
+                        default:
+                            System.out.println("Exclusao cancelada.");
+                            break;
+                    }
+
+                }
+
+            }
+        }
+        
+
+
+        System.out.println("Não tem pedidos  relacionado a esse funcionario");
+    }
+
+
+
+    public void buscarSolicitante(){
+        System.out.println("Digite o nome do funcionário solicitante:");
+        String funcionario = entrada.nextLine();
+        for (Pedido p: pedidos) {
+            if (p.getFuncionario().equals(funcionario)){
+                System.out.println(p.toString());
+            }
+        }
+        System.out.println("Não foi possível encontrar pedidos");
+    }
+
+
+    public void Exclui(Pedido p){
+        p = null;
+    }
+
+
+}
