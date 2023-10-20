@@ -9,8 +9,7 @@ public class Item {
     private double valorTotal;
     private ArrayList<Item> itens =  new ArrayList<Item>();
 
-    public Item(String descricao, double valorUnitario, int quantidade, double valorTotal) {
-    }
+
 
     public String getDescricao() {
         return descricao;
