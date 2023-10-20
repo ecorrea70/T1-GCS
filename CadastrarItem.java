@@ -12,7 +12,7 @@ public class CadastrarItem {
         System.out.println("Quantidade:");
         int quantidade = entrada.nextInt();
         double valorTotal = valorUnitario * quantidade;
-        Item item = new Item(descricao, valorUnitario, quantidade, valorTotal);
+        item = new Item(descricao, valorUnitario, quantidade, valorTotal);
         item.adicionarItem(item);
     }
 }
