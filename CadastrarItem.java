@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class CadastrarItem {
-    Item item;
+    public Item item;
     Scanner entrada = new Scanner(System.in);
 
-    public void cadastrarItem(){
+    public void cadastrarItem(Item item) {
         System.out.println("Descrição:");
         String descricao = entrada.nextLine();
         System.out.println("Valor:");
@@ -12,7 +12,13 @@ public class CadastrarItem {
         System.out.println("Quantidade:");
         int quantidade = entrada.nextInt();
         double valorTotal = valorUnitario * quantidade;
-        Item item = new Item(descricao, valorUnitario, quantidade, valorTotal);
-        item.adicionarItem(item);
+
+        Item novoItem = new Item();
+        novoItem.setDescricao(descricao);
+        novoItem.setValorUnitario(valorUnitario);
+        novoItem.setQuantidade(quantidade);
+        novoItem.setValorTotal(valorTotal);
+
+        item.adicionarItem(novoItem);
     }
 }

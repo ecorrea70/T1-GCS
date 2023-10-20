@@ -83,5 +83,4 @@ public class Pedido {
         pedidos.add(pedido);
         System.out.println(pedido.codigoPedido + pedido.itens.get(0).getQuantidade());
     }
-
 }

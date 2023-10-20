@@ -20,4 +20,10 @@ public class Usuario {
     public TipoUsuario getTipo() {
         return tipo;
     }
+
+    public void usuarioToString(){
+        System.out.println("Nome: "+getNome());
+        System.out.println("ID: "+getId());
+        System.out.println("Tipo: "+getTipo());
+    }
 }
