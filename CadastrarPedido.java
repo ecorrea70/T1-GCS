@@ -22,7 +22,6 @@ public class CadastrarPedido {
         pedidos.add(pedido);
     }
 
-
     public void valorTotal() {
         System.out.println("Digite o codigo do pedido");
         int codigo = entrada.nextInt();
@@ -36,9 +35,6 @@ public class CadastrarPedido {
 
         }
     }
-
-
-
 
     public void alterarStatusDoPedido() {
         identificaUser identifa = new identificaUser();
@@ -78,7 +74,6 @@ public class CadastrarPedido {
                 } else System.out.println("Funcionarios não podem alterar o status do pedido");
                 }
         }
-
             }
 
     public  void listarPedidos() {
@@ -94,7 +89,6 @@ public class CadastrarPedido {
                 System.out.println("O estado do pedido está como: " + pedido.getStatus());
             }
         }
-
     }
 
     public void buscarpelaDescricao(){
@@ -108,7 +102,6 @@ public class CadastrarPedido {
                 }
                 else {System.out.println("O pedido nao foi encontrado :");}
             }
-
             }
         }
 
@@ -124,7 +117,6 @@ public class CadastrarPedido {
                     System.out.println(p.getDepartamento());
                 }
             }
-
                 }
 
     public void concluirPedido(Pedido pedido){
